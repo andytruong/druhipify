@@ -11,6 +11,11 @@ Notification script for Drush to Drupal, help us to monitor all Drush commands r
 In settings.php, add these lines:
 
 ```php
+<?php
+/**
+ * @file settings.php
+ */
+
 define('GO_HIPCHAT_API_TOKEN', '***');
 define('GO_HIPCHAT_ROOM', 'Room Name');
 require_once '/path/to/drushipify.php';
@@ -22,7 +27,9 @@ Create this file:
 
 ```php
 <?php
-// @file ~/.drush/druhipify/druhipify.drush.inc
+/**
+ * @file ~/.drush/druhipify/druhipify.drush.inc
+ */
 
 define('GO_HIPCHAT_API_TOKEN', '***');
 define('GO_HIPCHAT_ROOM', 'Room Name');
