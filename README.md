@@ -2,3 +2,29 @@ druhipify
 =========
 
 Notification script for Drush to Drupal, help us to monitor all Drush commands run on server
+
+
+### Usage
+
+#### Log for specific site:
+
+In settings.php, add these lines:
+
+```php
+define('GO_HIPCHAT_API_TOKEN', '***');
+define('GO_HIPCHAT_ROOM', 'Room Name');
+require_once '/path/to/drushipify.php';
+```
+
+#### Log for all sites:
+
+Create this file:
+
+```
+<?php
+// @file ~/.drush/druhipify/druhipify.drush.inc
+
+define('GO_HIPCHAT_API_TOKEN', '***');
+define('GO_HIPCHAT_ROOM', 'Room Name');
+require_once '/path/to/drushipify.php';
+```
