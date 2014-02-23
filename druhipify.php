@@ -98,8 +98,9 @@ if (!function_exists('drush_go_hipchat')) {
  
 if (function_exists('drush_get_option')) {
   register_shutdown_function(function() {
-    exec('whoami; pwd', $output);
+    exec('whoami; hostname; pwd', $output);
     $user = array_shift($output);
+    $host = array_shift($output); // Suggested by Sang Le
     $pwd  = array_shift($output);
   
     $cmd = array();
