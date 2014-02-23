@@ -20,7 +20,7 @@ require_once '/path/to/drushipify.php';
 
 Create this file:
 
-```
+```php
 <?php
 // @file ~/.drush/druhipify/druhipify.drush.inc
 
