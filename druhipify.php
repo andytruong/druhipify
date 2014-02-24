@@ -15,7 +15,7 @@
  * distribution and use acknowledge that the software was developed
  * by the <organization>.  The name of the
  * <organization> may not be used to endorse or promote products derived
- * from this software without specific prior written permission.
+ * from this software without specific prior wr_filter_urlitten permission.
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
@@ -89,9 +89,9 @@ if (!function_exists('drush_go_hipchat')) {
   function go_drush_hipchat_format_message($msg) {
     $filter = new stdClass();
     $filter->settings['filter_url_length'] = 25;
-    $msg = filter_xss_admin($msg);
-    $msg = _filter_url($msg, $filter);
-    $msg = _filter_autop($msg);
+    $msg = strip_tags($msg);
+    function_exists('_filter_url')  && $msg = _filter_url($msg, $filter);
+    function_exists('_filter_autop') && $msg = _filter_autop($msg);
     return $msg;
   }
 }
