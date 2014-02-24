@@ -113,12 +113,14 @@ if (function_exists('drush_get_option')) {
     if (FALSE !== strpos($cmd[0], 'drush')) {
       $cmd[0] = 'drush';
     }
-    // Allow using default room
-    $room = defined(GO_MONITOR_HIPCHAT_ROOM) ? GO_MONITOR_HIPCHAT_ROOM : GO_HIPCHAT_ROOM;
-
-    drush_go_hipchat(
-      $room,
-      "<strong>[{$user}@{$pwd}]</strong>: <code>". implode(' ', $cmd) ."</code>"
-    );
+    // Only log message from full bootstrap
+    if (!drush_get_context('DRUSH_QUIET') && !drush_get_context('DRUSH_BACKEND')) {
+      // Allow using default room
+      $room = defined(GO_HIPCHAT_ROOM) ? GO_HIPCHAT_ROOM : GO_MONITOR_HIPCHAT_ROOM;
+      drush_go_hipchat(
+        $room,
+        "<strong>[{$user}@{$pwd}]</strong>: <code>". implode(' ', $cmd) ."</code>"
+      );
+    }
   });
 }

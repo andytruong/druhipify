@@ -32,6 +32,8 @@ Create this file:
  */
 
 define('GO_HIPCHAT_API_TOKEN', '***');
-define('GO_HIPCHAT_ROOM', 'Room Name');
+define('GO_MONITOR_HIPCHAT_ROOM', 'Room Name');
 require_once '/path/to/drushipify.php';
+
+// In any client site, just define GO_HIPCHAT_ROOM, notification will post to that room
 ```
