@@ -98,10 +98,11 @@ if (!function_exists('drush_go_hipchat')) {
 
 if (function_exists('drush_get_option')) {
   register_shutdown_function(function() {
-    exec('whoami; hostname; pwd', $output);
+    exec('whoami; hostname -a', $output);
     $user = array_shift($output);
     $host = array_shift($output); // Suggested by Sang Le
-    $pwd  = array_shift($output);
+    $pwd  = drush_get_context('DRUSH_DRUPAL_ROOT');
+    $site_root = drush_get_context('DRUSH_DRUPAL_SITE_ROOT');
 
     $cmd = array();
     foreach ($_SERVER['argv'] as $a) {
@@ -119,7 +120,7 @@ if (function_exists('drush_get_option')) {
       $room = defined(GO_HIPCHAT_ROOM) ? GO_HIPCHAT_ROOM : GO_MONITOR_HIPCHAT_ROOM;
       drush_go_hipchat(
         $room,
-        "<strong>[{$user}@{$pwd}]</strong>: <code>". implode(' ', $cmd) ."</code>"
+        "<strong>[<code>{$user}@{$host}:{$pwd}/{$site_root}</code>]</strong>: <code>". implode(' ', $cmd) ."</code>"
       );
     }
   });
