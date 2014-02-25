@@ -51,10 +51,11 @@ if (function_exists('drush_get_option')) {
     if (!drush_get_context('DRUSH_QUIET') && !drush_get_context('DRUSH_BACKEND')) {
       // Allow using default room
       $room = defined(GO_HIPCHAT_ROOM) ? GO_HIPCHAT_ROOM : GO_MONITOR_HIPCHAT_ROOM;
-      drush_go_hipchat(
-        $room,
-        "<strong>[<code>{$user}@{$host}:{$pwd}/{$site_root}</code>]</strong>: <code>". implode(' ', $cmd) ."</code>"
-      );
+
+      $msg  = "<strong>[<code>{$user}@{$host}:{$pwd}/{$site_root}</code>]</strong>:";
+      $msg .= " <code>". implode(' ', $cmd) ."</code>";
+
+      drush_go_hipchat($room, $msg);
     }
   });
 }
