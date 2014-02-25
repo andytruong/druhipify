@@ -19,14 +19,6 @@
  * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
  * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
- *
- * Usage:
- *
- *  In your Drupal settings.php, include these lines:
- *
- *    define('GO_HIPCHAT_API_TOKEN', '***');
- *    define('GO_HIPCHAT_ROOM', 'p.Crom');
- *    require_once dirname(__FILE__) . '/druhipify.php';
  */
 
 if (!function_exists('drush_go_hipchat')) {
