@@ -34,15 +34,19 @@ if (function_exists('drush_get_option')) {
     $site_root = drush_get_context('DRUSH_DRUPAL_SITE_ROOT');
 
     $cmd = array();
+
+    // Do not log php options
     foreach ($_SERVER['argv'] as $a) {
       if (FALSE === strpos($a, '--php')) {
         $cmd[] = $a;
       }
     }
 
+    // Use `drush` instead of `/full/path/to/drush.php`
     if (FALSE !== strpos($cmd[0], 'drush')) {
       $cmd[0] = 'drush';
     }
+
     // Only log message from full bootstrap
     if (!drush_get_context('DRUSH_QUIET') && !drush_get_context('DRUSH_BACKEND')) {
       // Allow using default room
