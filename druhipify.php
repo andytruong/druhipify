@@ -3,7 +3,7 @@
 /**
  * @file druhipify.php
  *
- *  https://gist.github.com/andytruong/f604ae2f43fb5b1ac98d
+ *  https://github.com/andytruong/druhipify
  *
  * Copyright (c) 2014 Andy Truong <thehongtt@gmail.com>
  * All rights reserved.
