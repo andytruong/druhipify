@@ -26,7 +26,7 @@
  *
  *    define('GO_HIPCHAT_API_TOKEN', '***');
  *    define('GO_HIPCHAT_ROOM', 'p.Crom');
- *    require_once dirname(__FILE__) . '/drushipify.php';
+ *    require_once dirname(__FILE__) . '/druhipify.php';
  */
 
 if (!function_exists('drush_go_hipchat')) {
